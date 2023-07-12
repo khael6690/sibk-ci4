@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\PanggilanModel;
 use App\Models\PelSiswaModel;
+use CodeIgniter\I18n\Time;
 
 define('_TITLE', 'Panggilan');
 
@@ -61,6 +62,27 @@ class Panggilan extends BaseController
         }
     }
 
+    public function deleteById($id = null)
+    {
+        if ($this->request->isAJAX()) {
+            if ($this->m_panggilan->delete($id)) {
+                $msg = [
+                    'success' =>  'Data berhasil dihapus!'
+                ];
+
+                return $this->response->setJSON($msg);
+            } else {
+                $msg = [
+                    'error' =>  'Data gagal dihapus!'
+                ];
+
+                return $this->response->setJSON($msg);
+            }
+        } else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
+
     public function status($id = null)
     {
         if ($this->request->isAJAX()) {
@@ -88,5 +110,17 @@ class Panggilan extends BaseController
         } else {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
+    }
+
+    public function surat($id = null)
+    {
+        $siswa = $this->m_panggilan->getPanggilan($id);
+        $tgl = Time::parse($siswa['created_at'])->toLocalizedString('d MMMM, Y');
+        $data = [
+            'siswa' => $siswa,
+            'tgl' => $tgl
+        ];
+
+        return view('panggilan/surat', $data);
     }
 }
