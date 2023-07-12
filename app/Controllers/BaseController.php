@@ -61,6 +61,7 @@ abstract class BaseController extends Controller
             'sekolah' => $_ENV['app.sekolah'],
             'telepon' => $_ENV['app.telepon'],
             'email' => $_ENV['app.email'],
+            'kota' => $_ENV['app.kota'],
         ];
         $session->set($identitas);
     }

@@ -36,6 +36,7 @@
                                 <input type="hidden" name="_method" value="delete">
                                 <button type="submit" class="btn btn-danger btn-sm text-white m-1"><i class="fas fa-trash"></i></button>
                             </form>
+                            <a href="<?= base_url('panggilan/surat/') . $value['panggilan_id']; ?>" class="btn btn-success btn-sm text-white m-1" target="_blank"><i class="fas fa-envelope"></i></a>
                         </td>
                     <?php endif ?>
                 </tr>
@@ -102,8 +103,8 @@
                                 });
                             }
                         })
-                    <?php endif; ?>
                     });
+                <?php endif; ?>
             }
         })
     });
@@ -193,6 +194,27 @@
                         });
                     }
                 });
+            }
+        })
+    })
+
+    // form hapus
+    $('.form-surat').submit(function(e) {
+        e.preventDefault();
+        const nama = $(this).attr('data-target');
+        swal.fire({
+            title: 'Apakah anda yakin?',
+            text: "Cetak surat untuk " + nama,
+            icon: 'question',
+            showCancelButton: true,
+            showCloseButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Iya',
+            cancelButtonText: 'Tidak'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(this).submit();
             }
         })
     })

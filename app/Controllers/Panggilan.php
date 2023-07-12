@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\PanggilanModel;
 use App\Models\PelSiswaModel;
+use CodeIgniter\I18n\Time;
 
 define('_TITLE', 'Panggilan');
 
@@ -113,6 +114,13 @@ class Panggilan extends BaseController
 
     public function surat($id = null)
     {
-        return view('panggilan/surat');
+        $siswa = $this->m_panggilan->getPanggilan($id);
+        $tgl = Time::parse($siswa['created_at'])->toLocalizedString('d MMMM, Y');
+        $data = [
+            'siswa' => $siswa,
+            'tgl' => $tgl
+        ];
+
+        return view('panggilan/surat', $data);
     }
 }
