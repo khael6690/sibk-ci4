@@ -81,7 +81,7 @@
                         customize: function(win) {
                             const header = ` <div class="row mb-3">
                                             <div class="col">
-                                                <h3 class="text-center font-weight-bold">SI-BK</h3>
+                                                <h3 class="text-center font-weight-bold">${namaApp}</h3>
                                                 <h2 class="text-center p-0 m-0">${sekolah}</h2>
                                                 <p class="text-center p-0 m-0 font-weight-light">${alamat}</p>
                                                 <p class="text-center p-0 m-0 font-weight-light">Telepon: ${telepon}, Email: ${email}</p>

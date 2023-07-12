@@ -61,6 +61,27 @@ class Panggilan extends BaseController
         }
     }
 
+    public function deleteById($id = null)
+    {
+        if ($this->request->isAJAX()) {
+            if ($this->m_panggilan->delete($id)) {
+                $msg = [
+                    'success' =>  'Data berhasil dihapus!'
+                ];
+
+                return $this->response->setJSON($msg);
+            } else {
+                $msg = [
+                    'error' =>  'Data gagal dihapus!'
+                ];
+
+                return $this->response->setJSON($msg);
+            }
+        } else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
+
     public function status($id = null)
     {
         if ($this->request->isAJAX()) {
@@ -88,5 +109,10 @@ class Panggilan extends BaseController
         } else {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
+    }
+
+    public function surat($id = null)
+    {
+        return view('panggilan/surat');
     }
 }

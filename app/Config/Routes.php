@@ -123,7 +123,9 @@ $routes->delete('pelanggaran', 'Pelanggaran::delete');
 $routes->get('panggilan', 'Panggilan::index');
 $routes->get('panggilan/viewdata', 'Panggilan::viewdata');
 $routes->delete('panggilan', 'Panggilan::delete');
+$routes->delete('panggilan/id/(:num)', 'Panggilan::deleteById/$1');
 $routes->post('panggilan/status/(:num)', 'Panggilan::status/$1');
+$routes->get('panggilan/surat/(:num)', 'Panggilan::surat/$1');
 
 $routes->get('setting', 'Users::setuser');
 $routes->get('setting/user', 'Users::getUser');
