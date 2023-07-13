@@ -12,13 +12,17 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/admin/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/admin/dist/css/adminlte.min.css">
+    <style>
+        @media print {
+            .container {
+                width: auto;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="wrapper">
-        <?= $this->renderSection('content'); ?>
-    </div>
-    <!-- ./wrapper -->
+    <?= $this->renderSection('content'); ?>
 
     <!-- Page specific script -->
     <!-- jQuery -->

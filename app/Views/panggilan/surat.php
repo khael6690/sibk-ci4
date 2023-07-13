@@ -2,7 +2,7 @@
 <?= $this->section('content'); ?>
 <!-- Main content -->
 <section>
-    <div class="container mt-4">
+    <div class="container mt-3">
         <!-- title row -->
         <div class="row justify-content-center">
             <div class="col-12 text-center">
@@ -40,7 +40,7 @@
                 </p>
             </div>
         </div>
-        <div class="row justify-content-between mt-5 mb-5">
+        <div class="row align-items-end justify-content-between mt-5 mb-5">
             <div class="col-3 text-center">
                 <br>
                 <p>Mengetahui,</p>
