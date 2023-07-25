@@ -1,5 +1,14 @@
 <?= $this->extend('layouts/login'); ?>
 <?= $this->section('content'); ?>
+<div class="container mb-2">
+    <div class="row justify-content-center">
+        <div class="col text-center">
+            <h3 class="text-bold m-0"><?= $_ENV['app.nama'] ?></h3>
+            <h2 class="text-bold"><?= $_ENV['app.sekolah'] ?></h2>
+            <img src="<?= base_url('assets/img/logo.jpg') ?>" alt="logo" class="rounded img-thumbnail mx-auto" width="150px">
+        </div>
+    </div>
+</div>
 <div class="login-box">
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
